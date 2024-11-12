@@ -1,0 +1,36 @@
+class Shop:
+    def __init__(self, name, items)
+       
+        self.name = name
+        self.items = items
+
+    def display_items(self):
+        print(f"Товары в магазине {self.name}:")
+        for item, price in self.items.items():
+            print(f"{item}: {price} тг.")
+
+    def check_purchase(self, budget, item_name):
+    if item_name in self.items:
+       price = self.items[item_name]
+       if budget >= price:
+           return f"Хватает денег на покупку {item_name}."
+      else:
+   return f"Не хватает денег на покупку {item_name}."
+ else:
+    return f"Товар '{item_name}' не найден в магазине."
+
+
+shop = Shop("Магазин Одежды", {
+    'Куртка': 30000,
+    'Штаны': 15000,
+    'Футболка': 8000
+})
+shop.display_items()
+
+budget = float(input("Введите ваш бюджет в тенге: "))
+
+item_name = input("Введите название товара, который хотите купить: ")
+
+result = shop.check_purchase(budget, item_name)
+
+print(result)
